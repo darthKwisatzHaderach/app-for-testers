@@ -4,7 +4,20 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    m = Contact.all
+    a = m.max
+    b = m.min
+    d = m.index(a)
+    c = m.index(b)
+    e = Random.rand(2)
+    if e < 1
+      m[d] = b
+      m[c] = a
+    else
+      m[d] = a
+      m[c] = b
+    end
+    @contacts = m
   end
 
   # GET /contacts/1
