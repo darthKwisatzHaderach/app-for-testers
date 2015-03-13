@@ -1,0 +1,35 @@
+div.bord.row
+	h4#notice = notice
+	h2 Просмотр
+    div.col-lg-12
+      div.row
+        div.col-lg-3
+          h4 align="right" ФИО:
+        div.col-lg-9
+          h4 = @contact.name
+      div.row
+        div.col-lg-3
+          h4 align="right" Должность:
+        div.col-lg-9
+          h4 = @contact.position
+      div.row
+        div.col-lg-3
+          h4 align="right" Телефон:
+        div.col-lg-9
+          h4 = @contact.phone
+      div.row
+        div.col-lg-3
+          h4 align="right" Почта:
+        div.col-lg-9
+          h4 = @contact.email
+      div.row
+        div.col-lg-3
+          h4 align="right" Адрес:
+        div.col-lg-9
+          h4 = @contact.address
+      div.row
+        div.col-lg-8
+        div.col-lg-2
+          = link_to 'Назад', contacts_path, class: "btn btn-default col-lg-12"
+        div.col-lg-2
+          = link_to 'Редактировать', edit_contact_path(@contact), class: "btn btn-default col-lg-12"

@@ -1,0 +1,33 @@
+div.row
+  div.row
+    div.col-lg-7
+      h3 align="center" style="margin-top: 0px;" Список контактов
+    div.col-lg-5
+      = link_to 'Добавить контакт', new_contact_path, class: "btn btn-default col-lg-12"
+  div.row
+    div.col-lg-12
+      table.table.table-condensed.table-hover
+	      thead
+	        tr
+	          th ФИО
+	          th Профессия
+	          th Телефон
+	          th Почта
+	          th Адрес
+	          th
+	          th
+	          th
+	      tbody
+	        - @contacts.each do |contact|
+	          tr
+	            td = contact.name
+	            td = contact.position
+	            td = contact.phone
+	            td = contact.email
+	            td = contact.address
+	            - if contact.id.even?
+	              td = link_to '', "/", class: "glyphicon glyphicon-eye-open"
+	            - else
+	              td = link_to '', contact, class: "glyphicon glyphicon-eye-open"
+	            td = link_to '', edit_contact_path(contact), class: "glyphicon glyphicon-pencil edit-case"
+	            td = link_to '', contact, method: :delete, class: "glyphicon glyphicon-remove edit-case", data: {confirm: "Вы уверены, что хочете удалить список \"" + contact.name + "\"?"}            

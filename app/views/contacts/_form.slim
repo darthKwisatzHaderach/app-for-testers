@@ -1,0 +1,40 @@
+= form_for(@contact) do |f|
+  - if @contact.errors.any?
+    div#error_explanation
+      h2 #{pluralize(@contact.errors.count, "error")} prohibited this contact from being saved:
+      ul
+        - @contact.errors.full_messages.each do |message|
+          li = message
+      
+  div.col-lg-12
+    div.row
+      div.col-lg-4
+        h4 align="right" ФИО:
+      div.col-lg-8
+        = f.text_field :name, type: "text", class: "form-control", placeholder: "Фамилия Имя"
+    div.row
+      div.col-lg-4
+        h4 align="right" Должность:
+      div.col-lg-8
+        = f.text_field :position, type: "text", class: "form-control", placeholder: "Должность"
+    div.row
+      div.col-lg-4
+        h4 align="right" Телефон:
+      div.col-lg-8
+        = f.text_field :phone, type: "text", class: "form-control", placeholder: "Телефон"
+    div.row
+      div.col-lg-4
+        h4 align="right" Почта:
+      div.col-lg-8
+        = f.text_field :email, type: "text", class: "form-control", placeholder: "Email"
+    div.row
+      div.col-lg-4
+        h4 align="right" Адрес:
+      div.col-lg-8
+        = f.text_field :address, type: "text", class: "form-control", placeholder: "Адрес"
+    div.row
+      div.col-lg-8
+      div.col-lg-2
+        = link_to 'Назад', contacts_path, class: "btn btn-default col-lg-12"
+      div.col-lg-2
+        = f.submit 'Сохранить', class: "btn btn-success col-lg-12"
